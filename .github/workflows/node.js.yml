@@ -3,12 +3,8 @@
 
 name: Node CI
 
-
-
 on: [push]
 
-
-    needs: build
 jobs:
 
   build:
@@ -22,11 +18,11 @@ jobs:
       - uses: actions/upload-artifact@main
         with:
           name: webpack artifacts
-    - uses: actions/download-artifact@main
-      with:
-        name: webpack artifacts
-        path: public
-    - name: npm install, and test
+      - uses: actions/download-artifact@main
+        with:
+          name: webpack artifacts
+          path: public
+      - name: npm install, and test
 
 
   test:
